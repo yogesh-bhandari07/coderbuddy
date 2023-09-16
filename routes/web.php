@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,14 +18,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth', 'checkIsAdmin'])->group(function () {
 
     Route::get('/user-list', [UserController::class, 'getAllUsersExceptAdmins'])->name('user-list');
-   
+    Route::get('/category-tree', [CategoryController::class, 'treeView'])->name('category-tree');
+
+    Route::resource('category',CategoryController::class);
 });
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return redirect('/user-dashboard');
     });
     Route::get('/user-dashboard-login/{id}', [UserController::class, 'loginUserDashboard'])->name('user-dashboard-login');
-  
+
     Route::get('/user-dashboard', function () {
         return view('dashboard');
     })->name('user-dashboard');
