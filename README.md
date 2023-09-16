@@ -32,6 +32,6 @@ php artisan migrate --seed
 ```
 # Users 
 
-admin - admin@gmail.com - 12345678
-user - yogesh@gmail.com - 12345678
-user - rahul@gmail.com - 12345678
+# admin - admin@gmail.com - 12345678
+# user - yogesh@gmail.com - 12345678
+# user - rahul@gmail.com - 12345678
